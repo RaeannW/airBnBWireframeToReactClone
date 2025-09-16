@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 :root {
   --headings: #222222;
   --defaultBlack: #000000;
@@ -7,6 +9,10 @@
   --darkGray: #6c6c6c;
   --pink: #dd1063;
   --red: #e81948;
+}
+
+* {
+  font-family: "Inter", sans-serif;
 }
 
 /* main window area */
@@ -21,6 +27,7 @@ nav {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-image: linear-gradient(to bottom, #e0e0de, #fdfdfd);
 }
 .searchContainer {
   display: flex;
@@ -39,7 +46,7 @@ nav {
   box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.05);
   padding: 0px 100px;
   text-align: center;
-
+  font-weight: 600;
 }
 .searchBar input::placeholder {
   color: var(--headings);
@@ -51,7 +58,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 67px;
+  gap: 62px;
 }
 .linkIcon {
   width: 50px;
@@ -71,4 +78,25 @@ a {
   color: var(--headings);
   text-decoration: underline;
   text-decoration-thickness: 3px;
+  font-weight: 600;
+}
+
+.phoneIconsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 45px 0px 45px;
+}
+.phoneIconsSubContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.phoneIcons {
+  height: 11px;
+}
+.time {
+  font-size: 17px;
+  font-weight: 600;
+  font-family: var(--font-inter-bold);
 }
