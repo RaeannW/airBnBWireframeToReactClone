@@ -12,7 +12,8 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <Listings listings={listings} />
+      <Listings listings={listings} city="Branson" />
+      <Listings listings={listings} city="Kansas City" />
     </>
   );
 }

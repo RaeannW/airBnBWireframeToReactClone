@@ -81,6 +81,7 @@ a {
   font-weight: 600;
 }
 
+/* top of phone screen */
 .phoneIconsContainer {
   display: flex;
   flex-direction: row;
@@ -99,4 +100,45 @@ a {
   font-size: 17px;
   font-weight: 600;
   font-family: var(--font-inter-bold);
+}
+
+/* image listing area */
+.listingView {
+  margin-left: 24px;
+}
+.imageListingContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.imageListingContainer img {
+  height: 158px;
+  width: 167px;
+  margin-right: 12px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.popularHomes {
+  color: var(--headings);
+  font-size: 18px;
+  font-weight: 600;  
+  margin: 30px 0px 15px;
+}
+.propertyCity {
+  color: var(--headings);
+  font-size: 12px;
+  font-weight: 600;
+  margin: 5px 0px 3px;
+}
+.propertyDetails {
+  color: var(--darkGray);
+  font-size: 12px;
+  font-weight: 500;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
