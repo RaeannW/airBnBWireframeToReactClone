@@ -1,4 +1,6 @@
-import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Listings({ listings }) {
   return (
@@ -8,9 +10,8 @@ export default function Listings({ listings }) {
           <img src={item.image} />
 
           <div>
-            <h3>{item.location}</h3>
-            <h3>{item.price}</h3>
-            <h3>{item.nights}</h3>
+            <h3>{item.propertyType} in {item.city}</h3>
+            <h3>${item.price} for {item.nights} nights <span><FontAwesomeIcon icon={faStar}/></span> {item.rating}</h3>
           </div>
         </div>
       ))}
