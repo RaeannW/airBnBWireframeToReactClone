@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Listings from "../components/Listings";
 import { getListings } from "../data/listing";
 import Nav from "../components/Nav";
+import BottomNav from "../components/BottomNav";
 
 export default function Home() {
   const [listings, setListings] = useState([]);
@@ -14,6 +15,7 @@ export default function Home() {
       <Nav />
       <Listings listings={listings} city="Branson" />
       <Listings listings={listings} city="Kansas City" />
+      <BottomNav />
     </>
   );
 }

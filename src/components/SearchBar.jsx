@@ -1,4 +1,5 @@
 import { useState } from "react";
+import searchIcon from "../assets/SearchIcon.png";
 
 export default function SearchBar({handleSearch}) {
     const [query, setQuery] = useState("");
@@ -10,6 +11,7 @@ export default function SearchBar({handleSearch}) {
 
   return (
     <form onSubmit={handleSubmit} className="searchBar">
+       <img src={searchIcon} alt="search"/>
         <input
         type="text"
         placeholder="Start your Search"

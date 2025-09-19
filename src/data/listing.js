@@ -11,7 +11,7 @@ const mockListings = [
     nights: 2,
     city: "Branson",
     state: "MO",
-    propertyType: "Treehouse",
+    propertyType: "Condo",
     rating: getRandomRating(),
     isGuestFavorite: true,
   },
@@ -51,7 +51,7 @@ const mockListings = [
     nights: 2,
     city: "Kansas City",
     state: "MO",
-    propertyType: "Guest suite",
+    propertyType: "Home",
     rating: getRandomRating(),
     isGuestFavorite: true,
   },
@@ -68,15 +68,25 @@ const mockListings = [
 ];
 
 export async function getListings() {
-  const res = await fetch(
-    `https://api.unsplash.com/search/photos?query=apartment&per_page=${mockListings.length}&client_id=${ACCESS_KEY}`
+  const propertyTypes = [...new Set(mockListings.map((l) => l.propertyType))];
+  const imagesByType = {};
+  await Promise.all(
+    propertyTypes.map(async (type) => {
+      const res = await fetch(
+        `https://api.unsplash.com/search/photos?query=${type}&per_page=10&client_id=${ACCESS_KEY}`
+      );
+      const data = await res.json();
+      imagesByType[type] = data.results.map((img) => img.urls.small);
+    })
   );
-  const data = await res.json();
 
-  const images = data.results.map((img) => img.urls.small);
+  const listingsWithImages = mockListings.map((listing) => {
+    const imgs = imagesByType[listing.propertyType];
+    const image =
+      imgs[Math.floor(Math.random() * imgs.length)] ||
+      "https://via.placeholder.com/400";
+    return { ...listing, image };
+  });
 
-  return mockListings.map((listing, i) => ({
-    ...listing,
-    image: images[i] || "https://via.placeholder.com/400",
-  }));
+  return listingsWithImages;
 }

@@ -13,6 +13,8 @@
 
 * {
   font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* main window area */
@@ -20,6 +22,8 @@
   background-color: var(--lightGray);
   width: 393px;
   margin: 0 auto;
+  background-image: linear-gradient(to bottom, #f0f0f0, #ffffff);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
 
 /* searchbar */
@@ -28,6 +32,7 @@ nav {
   justify-content: center;
   flex-direction: column;
   background-image: linear-gradient(to bottom, #e0e0de, #fdfdfd);
+  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.1);
 }
 .searchContainer {
   display: flex;
@@ -48,11 +53,23 @@ nav {
   text-align: center;
   font-weight: 600;
 }
+.searchBar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .searchBar input::placeholder {
   color: var(--headings);
   font-size: 14px;
 }
-
+.searchBar img {
+  position: absolute;
+  left: 120px;
+  width: 12px;
+  height: auto;
+  transform: translateY(180%);
+}
 /* nav icons & text */
 .navIconRow {
   display: flex;
@@ -121,10 +138,25 @@ a {
   border-radius: 20px;
   object-fit: cover;
 }
+.imageWrapper {
+  position: relative;
+}
+.guestFavorite {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: var(--lightGray);
+  color: var(--headings);
+  padding: 4px 8px;
+  border: 0.75px solid #fff;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: bold;
+}
 .popularHomes {
   color: var(--headings);
   font-size: 18px;
-  font-weight: 600;  
+  font-weight: 600;
   margin: 30px 0px 15px;
 }
 .propertyCity {
@@ -138,7 +170,63 @@ a {
   font-size: 12px;
   font-weight: 500;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: 0;
+}
+.chevronRight {
+  height: 14px;
+  width: auto;
+  vertical-align: middle;
+}
+.starIcon {
+  height: 9px;
+  width: auto;
+  vertical-align: baseline;
+}
+
+/* bottom nav */
+.bottomNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  gap: 40px;
+  background-color: var(--white);
+  padding: 17px 0px 35px;
+  margin-top: 20px;
+  border-top: 2px solid var(--lightGray);
+}
+.bottomNav img {
+  height: 22px;
+  width: auto;
+}
+.bottomNav div {
+  text-align: center;
+}
+.bottomNavIcon {
+  text-align: center;
+  font-size: 10px;
+  color: var(--darkGray);
+  font-weight: 500;
+}
+.activeIcon {
+  color: var(--red);
+}
+
+/* app background styling */
+.background {
+  margin: 15px;
+  padding: 0;
+}
+.linkToFigma {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 30px;
 }
