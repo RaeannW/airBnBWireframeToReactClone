@@ -1,5 +1,5 @@
 import { useState } from "react";
-import searchIcon from "../assets/SearchIcon.png";
+import searchIcon from "../assets/searchIcon.png";
 
 export default function SearchBar({handleSearch}) {
     const [query, setQuery] = useState("");
