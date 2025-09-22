@@ -1,5 +1,3 @@
-const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_API_KEY;
-
 function getRandomRating() {
   return (Math.random() * 5 + 1).toFixed(2);
 }
@@ -72,9 +70,7 @@ export async function getListings() {
   const imagesByType = {};
   await Promise.all(
     propertyTypes.map(async (type) => {
-      const res = await fetch(
-        `https://api.unsplash.com/search/photos?query=${type}&per_page=10&client_id=${ACCESS_KEY}`
-      );
+      const res = await fetch(`/.netlify/functions/unsplash?query=${type}`);
       const data = await res.json();
       imagesByType[type] = data.results.map((img) => img.urls.small);
     })
