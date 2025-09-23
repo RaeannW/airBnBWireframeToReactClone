@@ -1,4 +1,5 @@
 [dev]
   command = "npm run dev"
-  port = 5174
+  port = 8888
+  targetPort = 5173 
   functions = "netlify/functions"
