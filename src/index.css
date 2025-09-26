@@ -20,8 +20,10 @@
 /* main window area */
 .mainFrame {
   background-color: var(--lightGray);
-  width: 393px;
+  width: 100%;
+  max-width: 393px;
   margin: 0 auto;
+  position: relative;
   background-image: linear-gradient(to bottom, #f0f0f0, #ffffff);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
 }
@@ -122,6 +124,7 @@ a {
 /* image listing area */
 .listingView {
   margin-left: 24px;
+  position: relative;
 }
 .imageListingContainer {
   display: flex;
@@ -229,4 +232,45 @@ h6 {
   font-size: 14px;
   font-weight: 500;
   margin: 30px;
+}
+
+/* ai travel agent chat button */
+.chatButton {
+  background-image: linear-gradient(to bottom, var(--pink), var(--red));
+  color: white;
+  padding: 9px 20px;
+  border-radius: 999px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  bottom: 120px;
+  right: 10px;
+}
+
+/* chat container window */
+.chatContainer {
+  z-index: 10;
+  overflow: hidden;
+}
+.chatModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.chatModal {
+  background-color: white;
+  width: 400px;
+  max-width: 90%;
+  height: 500px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
 }

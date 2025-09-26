@@ -3,6 +3,7 @@ import Listings from "../components/Listings";
 import { getListings } from "../data/listing";
 import Nav from "../components/Nav";
 import BottomNav from "../components/BottomNav";
+import ChatButton from "../components/ChatButton";
 import ChatComponent from "../components/ChatComponent";
 
 export default function Home() {
@@ -11,12 +12,29 @@ export default function Home() {
     getListings().then(setListings);
   }, []);
 
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const openChat = () => setIsChatOpen(true);
+  const closeChat = () => setIsChatOpen(false);
+
   return (
     <>
       <Nav />
       <Listings listings={listings} city="Branson" />
       <Listings listings={listings} city="Kansas City" />
-      <ChatComponent />
+      {!isChatOpen && <ChatButton onClick={openChat} />}
+
+      {isChatOpen && (
+        <div className="chatModalOverlay" onClick={closeChat}>
+          <div className="chatModal" onClick={(e) => e.stopPropagation()}>
+            <button className="closeChatButton" onClick={closeChat}>
+              ✖
+            </button>
+            <ChatComponent />
+          </div>
+        </div>
+      )}
+
       <BottomNav />
     </>
   );
