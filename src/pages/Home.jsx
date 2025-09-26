@@ -25,12 +25,16 @@ export default function Home() {
       {!isChatOpen && <ChatButton onClick={openChat} />}
 
       {isChatOpen && (
-        <div className="chatModalOverlay" onClick={closeChat}>
-          <div className="chatModal" onClick={(e) => e.stopPropagation()}>
-            <button className="closeChatButton" onClick={closeChat}>
-              ✖
-            </button>
-            <ChatComponent />
+        <div className="chatModalContainer">
+          <span className="topOfChatModal">AI TRAVEL AGENT</span>
+          <div className="chatModalOverlay" onClick={closeChat}>
+            <div className="chatModal" onClick={(e) => e.stopPropagation()}>
+              <button className="closeChatButton" onClick={closeChat}>
+                ✖
+              </button>
+              <span>Ask a question</span>
+              <ChatComponent />
+            </div>
           </div>
         </div>
       )}
