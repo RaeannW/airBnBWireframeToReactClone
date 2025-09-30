@@ -21,9 +21,11 @@ export default function ChatComponent() {
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`messages" ${msg.sender === "user" ? "blue" : "gray"}`}
+            className={`messages" ${msg.sender === "user" ? "senderMessage" : "aiMessage"}`}
           >
+            <div className="bubble">
             <Markdown>{msg.text}</Markdown>
+            </div>
           </div>
         ))}
       </div>

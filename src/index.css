@@ -251,10 +251,8 @@ h6 {
 .chatContainer {
   z-index: 10;
   overflow: hidden;
-  background-color: lightgray;
 }
 .chatModalContainer {
-  background-color: gray;
   z-index: 2000;
   display: flex;
   justify-content: center;
@@ -286,4 +284,41 @@ h6 {
   position: relative;
   overflow: hidden;
   padding: 20px;
+}
+.senderMessage,
+.aiMessage {
+  display: flex;
+  margin: 10px 0;
+}
+.senderMessage {
+  justify-content: flex-end;
+}
+.aiMessage {
+  justify-content: flex-start;
+}
+.bubble {
+  padding: 14px 16px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.senderMessage .bubble {
+  background-color: var(--darkGray);
+  color: var(--white);
+}
+.aiMessage .bubble {
+  background-color: var(--lightGray);
+}
+.chatInputContainer {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-top: 2px solid var(--lightGray);
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+.chatInput {
+  margin-left: 20px;
 }
