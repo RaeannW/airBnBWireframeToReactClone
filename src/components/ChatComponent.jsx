@@ -16,15 +16,17 @@ export default function ChatComponent() {
   };
   return (
     <div className="chatContainer">
-      <h1>Chat Component</h1>
+      <h1>Hello There!</h1>
       <div ref={ref} className="chatContent">
-        {messages.map((msg, index) => (
+        {messages
+        .filter((msg) => msg.role !== "system")
+        .map((msg, index) => (
           <div
             key={index}
-            className={`messages" ${msg.sender === "user" ? "senderMessage" : "aiMessage"}`}
+            className={`messages ${msg.sender === "user" ? "senderMessage" : "aiMessage"}`}
           >
             <div className="bubble">
-            <Markdown>{msg.text}</Markdown>
+            <Markdown>{msg.content}</Markdown>
             </div>
           </div>
         ))}

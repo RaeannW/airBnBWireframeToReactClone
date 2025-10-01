@@ -1,10 +1,22 @@
 import { useState } from "react";
 
 const useChatbot = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    { role: "system", content: "You are a helpful virtual travel assistant." },
+    {
+      role: "assistant",
+      content:
+        "I’m your virtual travel agent. 👋 I’m here to help you plan your next trip.",
+    },
+    {
+      role: "assistant",
+      content:
+        "Feel free to ask me a question or select from one of the prompts below.",
+    },
+  ]);
 
   const sendMessage = async (message) => {
-    const newMessages = [...messages, { text: message, sender: "user" }];
+    const newMessages = [...messages, { content: message, sender: "user" }];
     setMessages(newMessages);
 
     try {
@@ -15,7 +27,7 @@ const useChatbot = () => {
       });
 
       const data = await response.json();
-      setMessages([...newMessages, { text: data.message, sender: "bot" }]);
+      setMessages([...newMessages, { content: data.message, sender: "bot" }]);
     } catch (error) {
       console.error("Error fetching AI response: ", error);
     }
